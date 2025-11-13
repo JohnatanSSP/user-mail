@@ -1,17 +1,17 @@
 version: '3.8'
+
 services:
   postgres:
     image: postgres:latest
-    container_name: emails_ingress
+    container_name: ms-email-db
     environment:
-      POSTGRES_DB: emails_ingress
+      POSTGRES_DB: ms_email_ms
       POSTGRES_USER: postgres-user
       POSTGRES_PASSWORD: postgres-password
     ports:
-      - "5431:5432"
+      - "5433:5432"
     volumes:
-        - pgdata:/var/lib/postgresql/data
-    restart: always
+      - pgdata:/var/lib/postgresql/data
 
 volumes:
   pgdata:
