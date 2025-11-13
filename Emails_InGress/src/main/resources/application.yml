@@ -3,7 +3,7 @@ spring:
     name: user
 
   datasource:
-    url:  jdbc:postgresql://localhost:5433/postgres
+    url:  jdbc:postgresql://localhost:5433/ms_email_db
     username: postgres-user
     password: postgres-password
     driver-class-name: org.postgresql.Driver
