@@ -2,9 +2,9 @@ version: '3.8'
 services:
   postgres:
     image: postgres:latest
-    container_name: user_ingress
+    container_name: ms-user-db
     environment:
-      POSTGRES_DB: user_ingress
+      POSTGRES_DB: ms_user_ms
       POSTGRES_USER: postgres-user
       POSTGRES_PASSWORD: postgres-password
     ports:
