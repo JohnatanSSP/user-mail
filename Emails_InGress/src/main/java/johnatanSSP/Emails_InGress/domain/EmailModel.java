@@ -1,14 +1,13 @@
 package johnatanSSP.Emails_InGress.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import johnatanSSP.Emails_InGress.enums.EmailStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "TB_EMAIL")
@@ -17,8 +16,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class EmailModel {
 
-    private String emailID;
-    private String userID;
+    private final Long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID emailID;
+    private UUID userID;
     private String emailFrom;
     private String emailTo;
     private String emailSubject;
