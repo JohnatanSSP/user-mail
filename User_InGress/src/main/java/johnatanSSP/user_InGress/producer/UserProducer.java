@@ -1,6 +1,7 @@
 package johnatanSSP.user_InGress.producer;
 
 import johnatanSSP.user_InGress.domain.UserModel;
+import johnatanSSP.user_InGress.dto.EmailDto;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
@@ -12,8 +13,17 @@ public class UserProducer {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void sendUserCreatedEvent (UserModel userModel){
-        rabbitTemplate.convertAndSend("user.created", event);
+    private final String routingKey = "email_queue";
+
+    public void publishEvent (UserModel userModel){
+        var emailDto = new EmailDto();
+
+        emailDto.setUserID(userModel.getUserId());
+        emailDto.getEmailTo(userModel.getEmail());
+        emailDto.setEmailSubject("Welcome to ingress!");
+        emailDto.setEmailBody("Hello!!! " + userModel.getName() + ", Welcome to your plataform for ingress!");
+
+        rabbitTemplate.convertAndSend("", routingKey, userModel);
     }
     
 }
