@@ -7,6 +7,9 @@ import johnatanSSP.user_InGress.repositorie.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.UUID;
+
 @Service
 public class UserService {
 
@@ -26,5 +29,14 @@ public class UserService {
         user = Repository.save(user);
         Producer.publishEvent(user);
         return user;
+    }
+
+    public List<UserModel> getAllUsers() {
+        return Repository.findAll();
+    }
+
+    @Transactional
+    public void deleteById(UUID id) {
+        Repository.deleteById(id);
     }
 }
