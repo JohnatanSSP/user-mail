@@ -15,10 +15,10 @@ spring:
       dialect: org.hibernate.dialect.PostgreSQLDialect
 
   rabbitmq:
-    addresses: amqps://duck.lmq.cloudamqp.com
-    username: ${RABBITMQ_USERNAME}
-    password: ${RABBITMQ_PASSWORD}
-    virtual-host: pofhowkh
+    addresses: "amqps://gllsxgbh:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy@kebnekaise.lmq.cloudamqp.com/gllsxgbh"
+    username: "gllsxgbh"
+    password: "OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy"
+    virtual-host: "gllsxgbh"
 
   flyway:
     enabled: true
