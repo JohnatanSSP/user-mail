@@ -59,7 +59,7 @@ public class UserController {
     @Operation(summary = "Deleta um usuário", description = "Deleta o usuário identificado pelo id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Usuário deletado com sucesso", content = @Content),
-            @ApiResponse(responseCode = "404", description = "Usuário não encontrado", content = @Content)
+            @ApiResponse(responseCode = "404", descrription = "Usuário não encontrado", content = @Content)
     })
     @DeleteMapping("/user/{id}")
     public ResponseEntity<Void> deleteUser(
