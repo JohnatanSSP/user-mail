@@ -21,6 +21,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 
+import jakarta.validation.Valid;
+
 @RestController
 @Tag(name = "Users", description = "Operações de gerenciamento de usuários")
 public class UserController {
@@ -36,10 +38,11 @@ public class UserController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserModel.class))),
-            @ApiResponse(responseCode = "400", description = "Requisição inválida", content = @Content)
+            @ApiResponse(responseCode = "400", description = "Requisição inválida", content = @Content),
+            @ApiResponse(responseCode = "409", description = "Email already in use", content = @Content)
     })
     @PostMapping("/user")
-    public ResponseEntity<UserModel> createUser(@RequestBody UserDto userDto){
+    public ResponseEntity<UserModel> createUser(@Valid @RequestBody UserDto userDto){
         var userModel = new UserModel();
         BeanUtils.copyProperties(userDto,userModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.saveAndPublish((userModel)));
@@ -59,7 +62,7 @@ public class UserController {
     @Operation(summary = "Deleta um usuário", description = "Deleta o usuário identificado pelo id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Usuário deletado com sucesso", content = @Content),
-            @ApiResponse(responseCode = "404", descrription = "Usuário não encontrado", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Usuário não encontrado", content = @Content)
     })
     @DeleteMapping("/user/{id}")
     public ResponseEntity<Void> deleteUser(
