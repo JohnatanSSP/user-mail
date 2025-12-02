@@ -25,7 +25,7 @@ public class EmailModel {
     private String emailFrom;
     private String emailTo;
     private String emailSubject;
-    @Column(columnDefinition = "BODY")
+    @Column(name = "email_body", columnDefinition = "TEXT")
     private String emailBody;
     private LocalDateTime emailSentDate;
     private EmailStatus emailStatus;
