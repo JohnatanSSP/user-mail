@@ -2,6 +2,7 @@ package johnatanSSP.user_InGress.service;
 
 import jakarta.transaction.Transactional;
 import johnatanSSP.user_InGress.domain.UserModel;
+import johnatanSSP.user_InGress.exception.EmailAlreadyUsedException;
 import johnatanSSP.user_InGress.producer.UserProducer;
 import johnatanSSP.user_InGress.repositorie.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class UserService {
 
     @Transactional
     public UserModel saveAndPublish(UserModel user) {
+        // check duplicate email
+        if (user.getEmail() != null && Repository.existsByEmail(user.getEmail())) {
+            throw new EmailAlreadyUsedException(user.getEmail());
+        }
         user = Repository.save(user);
         Producer.publishEvent(user);
         return user;
