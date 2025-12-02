@@ -3,7 +3,7 @@ spring:
     name: user
 
   datasource:
-    url:  jdbc:postgresql://localhost:5433/ms_email_ms
+    url:  jdbc:postgresql://localhost:5433/postgres
     username: postgres-user
     password: postgres-password
     driver-class-name: org.postgresql.Driver
@@ -24,6 +24,7 @@ spring:
     username: "gllsxgbh"
     password: "OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy"
     virtual-host: "gllsxgbh"
+    port: 5672
 
 server:
   port: 8080
