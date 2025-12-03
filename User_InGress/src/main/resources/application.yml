@@ -2,9 +2,9 @@ spring:
   application:
     name: user
   datasource:
-    url: jdbc:postgresql://localhost:5430/postgres
-    username: postgres-user
-    password: postgres-password
+    url: ${USER_DS_URL:jdbc:postgresql://localhost:5430/ms_user_ms}
+    username: ${USER_DS_USERNAME:postgres-user}
+    password: ${USER_DS_PASSWORD:postgres-password}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -15,16 +15,16 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   rabbitmq:
-    addresses: "amqps://gllsxgbh:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy@kebnekaise.lmq.cloudamqp.com/gllsxgbh"
-    username: "gllsxgbh"
-    password: "OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy"
-    virtual-host: "gllsxgbh"
-    port: 5672
+    addresses: ${USER_RABBITMQ_ADDRESSES:amqps://gllsxgbh:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy@kebnekaise.lmq.cloudamqp.com/gllsxgbh}
+    username: ${USER_RABBITMQ_USERNAME:gllsxgbh}
+    password: ${USER_RABBITMQ_PASSWORD:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy}
+    virtual-host: ${USER_RABBITMQ_VHOST:gllsxgbh}
+    port: ${USER_RABBITMQ_PORT:5672}
 
   flyway:
     enabled: true
-    locations: classpath:db/migration
+    locations: ${FLYWAY_LOCATIONS:classpath:db/migration}
     baseline-on-migrate: true
 
 server:
-  port: 8081
+  port: ${USER_SERVICE_PORT:8081}

@@ -21,15 +21,6 @@
             </PendingDiffInfo>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/User_InGress/src/main/resources/application.yml">
-          <value>
-            <PendingDiffInfo>
-              <option name="filePath" value="$PROJECT_DIR$/User_InGress/src/main/resources/application.yml" />
-              <option name="originalContent" value="spring:&#10;  application:&#10;    name: user&#10;  datasource:&#10;    url: jdbc:postgresql://localhost:5430/ms_user_ms&#10;    username: postgres-user&#10;    password: postgres-password&#10;    driver-class-name: org.postgresql.Driver&#10;  jpa:&#10;    hibernate:&#10;      ddl-auto: none&#10;    show-sql: true&#10;    properties:&#10;      hibernate:&#10;        dialect: org.hibernate.dialect.PostgreSQLDialect&#10;&#10;  rabbitmq:&#10;    addresses: &quot;amqps://gllsxgbh:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy@kebnekaise.lmq.cloudamqp.com/gllsxgbh&quot;&#10;    username: &quot;gllsxgbh&quot;&#10;    password: &quot;OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy&quot;&#10;    virtual-host: &quot;gllsxgbh&quot;&#10;&#10;  flyway:&#10;    enabled: true&#10;    locations: classpath:db/migration&#10;    baseline-on-migrate: true&#10;&#10;server:&#10;  port: 8081&#10;" />
-              <option name="updatedContent" value="spring:&#10;  application:&#10;    name: user&#10;  datasource:&#10;    url: jdbc:postgresql://localhost:5430/ms_user_ms&#10;    username: postgres-user&#10;    password: postgres-password&#10;    driver-class-name: org.postgresql.Driver&#10;  jpa:&#10;    hibernate:&#10;      ddl-auto: none&#10;    show-sql: true&#10;    properties:&#10;      hibernate:&#10;        dialect: org.hibernate.dialect.PostgreSQLDialect&#10;&#10;  rabbitmq:&#10;    addresses: &quot;amqps://gllsxgbh:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy@kebnekaise.lmq.cloudamqp.com/gllsxgbh&quot;&#10;    username: &quot;gllsxgbh&quot;&#10;    password: &quot;OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy&quot;&#10;    virtual-host: &quot;gllsxgbh&quot;&#10;&#10;  flyway:&#10;    enabled: true&#10;    locations: classpath:db/migration&#10;    baseline-on-migrate: true&#10;&#10;server:&#10;  port: 8081" />
-            </PendingDiffInfo>
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/User_InGress/src/main/resources/db/migration/V1__create_tb_users.sql">
           <value>
             <PendingDiffInfo>

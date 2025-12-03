@@ -3,9 +3,9 @@ spring:
     name: user
 
   datasource:
-    url:  jdbc:postgresql://localhost:5433/postgres
-    username: postgres-user
-    password: postgres-password
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/postgres}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres-user}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres-password}
     driver-class-name: org.postgresql.Driver
 
 
@@ -17,16 +17,28 @@ spring:
       hibernate: org.hibernate.dialect.PostgreSQLDialect
       dialect: org.hibernate.dialect.PostgreSQLDialect
 
-
-
   rabbitmq:
-    addresses: "amqps://gllsxgbh:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy@kebnekaise.lmq.cloudamqp.com/gllsxgbh"
-    username: "gllsxgbh"
-    password: "OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy"
-    virtual-host: "gllsxgbh"
-    port: 5672
+    addresses: ${RABBITMQ_ADDRESSES:amqps://gllsxgbh:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy@kebnekaise.lmq.cloudamqp.com/gllsxgbh}
+    username: ${RABBITMQ_USERNAME:gllsxgbh}
+    password: ${RABBITMQ_PASSWORD:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy}
+    virtual-host: ${RABBITMQ_VHOST:gllsxgbh}
+    port: ${RABBITMQ_PORT:5672}
+
+  # Gmail SMTP configuration
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${SMTP_USERNAME:your-email@gmail.com}
+    password: ${SMTP_PASSWORD:your-app-password}
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.ssl.trust: smtp.gmail.com
+      mail.smtp.connectiontimeout: 5000
+      mail.smtp.timeout: 5000
+      mail.smtp.writetimeout: 5000
 
 server:
-  port: 8080
-
-
+  port: ${EMAILS_SERVICE_PORT:8080}
