@@ -3,8 +3,8 @@ spring:
     name: user
   datasource:
     url: ${USER_DS_URL:jdbc:postgresql://localhost:5430/ms_user_ms}
-    username: ${USER_DS_USERNAME:postgres-user}
-    password: ${USER_DS_PASSWORD:postgres-password}
+    username: ${USER_DS_USERNAME}
+    password: ${USER_DS_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -15,10 +15,10 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   rabbitmq:
-    addresses: ${USER_RABBITMQ_ADDRESSES:amqps://gllsxgbh:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy@kebnekaise.lmq.cloudamqp.com/gllsxgbh}
-    username: ${USER_RABBITMQ_USERNAME:gllsxgbh}
-    password: ${USER_RABBITMQ_PASSWORD:OThnUUQo3FsvtqDg20pAmdhTnOLqlkgy}
-    virtual-host: ${USER_RABBITMQ_VHOST:gllsxgbh}
+    addresses: ${USER_RABBITMQ_ADDRESSES}
+    username: ${USER_RABBITMQ_USERNAME}
+    password: ${USER_RABBITMQ_PASSWORD}
+    virtual-host: ${USER_RABBITMQ_VHOST}
     port: ${USER_RABBITMQ_PORT:5672}
 
   flyway:
