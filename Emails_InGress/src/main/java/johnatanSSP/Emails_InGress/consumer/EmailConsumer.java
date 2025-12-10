@@ -14,7 +14,6 @@ public class EmailConsumer {
 
     private final EmailService emailService;
 
-    @Autowired
     public EmailConsumer(EmailService emailService) {
         this.emailService = emailService;
     }

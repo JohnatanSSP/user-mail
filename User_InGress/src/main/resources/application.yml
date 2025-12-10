@@ -2,7 +2,7 @@ spring:
   application:
     name: user
   datasource:
-    url: ${USER_DS_URL:jdbc:postgresql://localhost:5430/ms_user_ms}
+    url: ${USER_DS_URL}
     username: ${USER_DS_USERNAME}
     password: ${USER_DS_PASSWORD}
     driver-class-name: org.postgresql.Driver
@@ -19,12 +19,12 @@ spring:
     username: ${USER_RABBITMQ_USERNAME}
     password: ${USER_RABBITMQ_PASSWORD}
     virtual-host: ${USER_RABBITMQ_VHOST}
-    port: ${USER_RABBITMQ_PORT:5672}
+    port: ${USER_RABBITMQ_PORT}
 
   flyway:
     enabled: true
-    locations: ${FLYWAY_LOCATIONS:classpath:db/migration}
+    locations: ${FLYWAY_LOCATIONS}
     baseline-on-migrate: true
 
 server:
-  port: ${USER_SERVICE_PORT:8081}
+  port: ${USER_SERVICE_PORT}
