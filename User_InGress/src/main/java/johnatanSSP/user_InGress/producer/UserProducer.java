@@ -21,7 +21,7 @@ public class UserProducer {
         emailDto.setUserID(userModel.getUserId());
         emailDto.setEmailTo(userModel.getEmail());
         emailDto.setEmailSubject("Welcome to ingress!");
-        emailDto.setEmailBody("Hello!!! " + userModel.getName() + ", Welcome to your plataform for ingress!");
+        emailDto.setEmailBody("Hello!!! " + userModel.getName() + " , Welcome to your plataform for ingress!");
 
         rabbitTemplate.convertAndSend("", routingKey, emailDto);
     }

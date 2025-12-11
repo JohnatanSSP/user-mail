@@ -22,7 +22,7 @@ public class EmailService {
         this.emailRepository = emailRepository;
     }
 
-    @Value("${spring.mail.username:}")
+    @Value("${SMTP_USERNAME}")
     private String fromEmail;
 
     public void sendEmail(EmailModel emailModel) {

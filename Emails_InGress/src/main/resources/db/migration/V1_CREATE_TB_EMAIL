@@ -5,7 +5,7 @@ CREATE TABLE tb_email (
     email_to  VARCHAR(255),
     email_subject VARCHAR(255),
     body TEXT,
-    send_date_email TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    send_date_email TIMESTAMP,
     status_email VARCHAR(50)
 );
 
@@ -18,6 +18,6 @@ VALUES (
     'user@example.com',
     'E-mail de teste',
     'Este é um e-mail de exemplo inserido pela migração V1_CREATE_TB_EMAIL.',
-    CURRENT_TIMESTAMP,
+    NOW(),
     'SENT'
 );
